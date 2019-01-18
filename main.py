@@ -2,7 +2,7 @@
 
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
-e 
+
 """
 This sample shows how to create a simple EchoBot with state.
 """

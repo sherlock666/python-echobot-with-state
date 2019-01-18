@@ -67,6 +67,8 @@ Now go back to the resource group and navigate to the Web App Service you create
 
 While we're in this window, set the Start File field to startup.txt. This will add the startup command we created earlier.
 
+Note, be sure to save your changes.
+
 ### Create a Local Git Reposity and Push to Web App Remote
 Create a local git repository for your project.
 
