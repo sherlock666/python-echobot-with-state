@@ -24,10 +24,65 @@ git clone https://github.com/Microsoft/botbuilder-python.git
 - File -> Open bot and navigate to samples\EchoBot-with-State folder
 - Select EchoBot-with-State.bot file
 
-### Connect to bot using Bot Framework Emulator **V3**
-- Launch Bot Framework Emulator
-- Paste this URL in the emulator window - http://localhost:9000
+## Deploy to Azure
 
+### Create a Resource Group
+A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
+
+In the Cloud Shell, create a resource group with the az group create command. The following example creates a resource group named myResourceGroup in the West US location.
+```bash
+az group create --name myResourceGroup --location "West US"
+```
+### Create an Azure App Service Plan 
+Create an App Service plan in the resource group with the az appservice plan create command.
+```bash
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
+```
+### Create a Web App
+Create a web app in the `myAppServicePlan` App Service plan. We are setting the runtime to Python 3.7 and setting the deployment to local git.
+```bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PYTHON|3.7" --deployment-local-git
+```
+Running this command should output the URL of the Git remote where we will push our bot. Save this URL as we will need it later.
+
+### Register Your Bot
+Next we need to create a bot registration so we can deploy our bot to multiple channels like Microsoft Teams, Skype, and Facebook Messenger. Make sure to add your `<app_name>` to the enpoint url
+```bash
+az bot create --resource-group myResourceGroup --name myPyhtonBot --kind registration --endpoint https://<app_name>.azurewebsites.net/api/messages
+```
+
+### Create Startup File
+Create a `startup.txt` file to your project and add the following line: 
+```
+gunicorn --bind 0.0.0.0 --worker-class aiohttp.worker.GunicornWebWorker --timeout 600 main:app
+```
+This configures the Gunicorn WSGI HTTP Server to use `aiohttp` workers and starts the app.
+
+### Add Enviorment Varaibles
+We need to add our `APP_ID` and `APP_SECRET` to our app as environment variables. To get our the `APP_ID` and `APP_SECRET`, open the [Azure Portal](https://portal.azure.com) and naviage to the resource group we created earlier. Click on the Deployments blade on the left side, and then click on the Bot you ceated under Deployment Name. Then click on the Inputs blade and copy the `APPID` and `APPSECRET`.
+
+Now go back to the resource group and navigate to the Web App Service you created. Open the Application settings blade. In the Applications settings section, add the `APP_ID` and `APP_SECRET` as key value pairs.
+
+While we're in this window, set the Start File field to `startup.txt`. This will run the startup command we created earlier. 
+
+### Create Local Git Reposity and Push to Web App Remote
+Create a local git repository and add your project.
+
+```bash
+git init
+git add .
+git commit -m "init"
+```
+
+In the Web App Service on Azure, click on the Deployment Center Blade. It should be right above the Application settings blade from the previous step. Copy the Git Clone Uri and add it as a remote to your local git repository. Then click on the Deployment Credntials button to get the Username and Password for the Kudo Repository. When you push your project to Azure, you will be prompted for the username and password.
+
+```bash
+git remote add azure https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
+git push azure master
+```
+
+### Test in WebChat on Azure
+Navigate to your Bot - the simpilest way to find it is in your Resource Group. Click on the Test in WebChat blade and message your bot. 
 
 ## Bot State
 
