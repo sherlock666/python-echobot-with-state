@@ -1,0 +1,27 @@
+{
+    "name": "EchoBot-with-State",
+    "description": "Simple echo bot with state.",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "0",
+            "name": "development"
+        },
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "https://thdurn-py-app.azurewebsites.net/api/messages",
+            "id": "1",
+            "name": "production"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "path": "C:\\Users\\v-thdurn\\Developer\\Python\\Azure\\thdurn-python-echobot-src\\EchoBot-with-State.bot",
+    "overrides": null,
+    "secretKey": ""
+}
