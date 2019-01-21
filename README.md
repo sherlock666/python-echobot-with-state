@@ -75,7 +75,7 @@ git commit -m "init"
 
 In your Web App Service on Azure, click on the Deployment Center Blade. Copy the Git Clone Uri and add it as a remote to your local git repository. Then click on the Deployment Credentials button to get the Username and Password for the repository. When you push your project to Azure, you will be prompted for the username and password.
 
-![](./assets/deployment\ center.jpg)
+![](assets/deployment\ center.jpg)
 
 ```bash
 git remote add azure https://<APP_NAME>.scm.azurewebsites.net:443/<APP_NAME>.git
