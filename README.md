@@ -75,7 +75,7 @@ git commit -m "init"
 
 In your Web App Service on Azure, click on the Deployment Center Blade. Copy the Git Clone Uri and add it as a remote to your local git repository. Then click on the Deployment Credentials button to get the Username and Password for the repository. When you push your project to Azure, you will be prompted for the username and password.
 
-![](assets/deployment\ center.jpg)
+![](https://github.com/tdurnford/python-echobot-with-state/blob/master/assets/deployment%20center.jpg)
 
 ```bash
 git remote add azure https://<APP_NAME>.scm.azurewebsites.net:443/<APP_NAME>.git
@@ -84,7 +84,7 @@ git push azure master
 
 ### Add Enviorment Varaibles and Add Startup Command
 We need to add our `APP_ID` and `APP_SECRET` to our app as environment variables. Click on the App Settings blade on the left side - it should be right below the Deployment Center blade from the previous step. In the Applications settings section, add the APP_ID and APP_SECRET as key-value pairs.
-
+![](https://github.com/tdurnford/python-echobot-with-state/blob/master/assets/app_settings.jpg)
 While we're in this window, set the Start File field to startup.txt. This will add the startup command we created earlier.
 
 Note, be sure to save your changes.
