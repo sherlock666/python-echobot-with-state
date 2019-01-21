@@ -84,13 +84,14 @@ git push azure master
 
 ### Add Enviorment Varaibles and Add Startup Command
 We need to add our `APP_ID` and `APP_SECRET` to our app as environment variables. Click on the App Settings blade on the left side - it should be right below the Deployment Center blade from the previous step. In the Applications settings section, add the APP_ID and APP_SECRET as key-value pairs.
+
 ![](https://github.com/tdurnford/python-echobot-with-state/blob/master/assets/app_settings.jpg)
 While we're in this window, set the Start File field to startup.txt. This will add the startup command we created earlier.
 
 Note, be sure to save your changes.
 
 ### Test in WebChat on Azure
-Restart the Web and app and then navigate to your Bot in Azure - the simplest way to find it is in your Resource Group. Click on the Test in WebChat blade and message your Python Bot. You can now configure your bot to work with all of the available channels!
+Restart the web app and then navigate to your Bot in Azure - the simplest way to find it is in your Resource Group. Click on the Test in WebChat blade and message your Python Bot. You can now configure your bot to work with all of the available channels!
 
 ## Bot State
 A key to good bot design is to track the context of a conversation, so that your bot remembers things like the answers to previous questions. Depending on what your bot is used for, you may even need to keep track of state or store information for longer than the lifetime of the conversation. A bot's state is information it remembers in order to respond appropriately to incoming messages. The Bot Builder SDK provides classes for storing and retrieving state data as an object associated with a user or a conversation.
