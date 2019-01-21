@@ -47,9 +47,9 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 ```
 
 ### Register Your Bot
-Next, we need to create a bot registration so we can configure it to work with multiple channels such as Microsoft Teams, Skype, WebChat, and Facebook Messenger.
+Next, we need to create a bot registration so we can configure the bot to work with multiple channels such as Microsoft Teams, Skype, WebChat, and Facebook Messenger.
 
-First, create a new app in the [Application Registration Portal](https://apps.dev.microsoft.com/#/appList) and generate a new password. Keep track of the Application Id and Password as we'll need in the command below to create the bot registration and later on when we configure the environment variables. Note, if you lose your password, you will have to generate a new one in the [Application Registration Portal](https://apps.dev.microsoft.com/#/appList). 
+First, create a new app in the [Application Registration Portal](https://apps.dev.microsoft.com/#/appList) and generate a new password. Keep track of the Application Id and Password as we'll need them in the command below to create the bot registration and later on when we configure the environment variables. Note, if you lose your password, you will have to generate a new one in the [Application Registration Portal](https://apps.dev.microsoft.com/#/appList). 
 
  Use the az bot create command to create a new bot registraton. Make sure to add your `<APP_NAME>`, `<APP_ID>`, and `<PASSWORD>` from the previous steps to the command.
 
@@ -74,6 +74,8 @@ git commit -m "init"
 ```
 
 In your Web App Service on Azure, click on the Deployment Center Blade. Copy the Git Clone Uri and add it as a remote to your local git repository. Then click on the Deployment Credentials button to get the Username and Password for the repository. When you push your project to Azure, you will be prompted for the username and password.
+
+![](./assets/deployment\ center.jpg)
 
 ```bash
 git remote add azure https://<APP_NAME>.scm.azurewebsites.net:443/<APP_NAME>.git
