@@ -82,10 +82,11 @@ git remote add azure https://<APP_NAME>.scm.azurewebsites.net:443/<APP_NAME>.git
 git push azure master
 ```
 
-### Add Enviorment Varaibles and Add Startup Command
+### Add Enviorment Varaibles and Add Startup File
 We need to add our `APP_ID` and `APP_SECRET` to our app as environment variables. Click on the App Settings blade on the left side - it should be right below the Deployment Center blade from the previous step. In the Applications settings section, add the APP_ID and APP_SECRET as key-value pairs.
 
 ![](https://github.com/tdurnford/python-echobot-with-state/blob/master/assets/app_settings.jpg)
+
 While we're in this window, set the Start File field to startup.txt. This will add the startup command we created earlier.
 
 Note, be sure to save your changes.
