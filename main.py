@@ -31,8 +31,8 @@ conversation_state = ConversationState(memory)
 
 # Register both State middleware on the adapter.
 # Commented out user_state because it's not being used.
-ADAPTER.use(user_state)
-# ADAPTER.use(conversation_state)
+#ADAPTER.use(user_state)
+#ADAPTER.use(conversation_state)
 
 
 async def create_reply_activity(request_activity, text) -> Activity:
