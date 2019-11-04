@@ -1,4 +1,4 @@
-git+https://github.com/Azure/msrest-for-python@v0.4.29
-botbuilder-core>=4.0.0.a6
+msrest == 0.6.10
+botbuilder-core>=botbuilder-core 4.5.0b5
 aiohttp==3.4.4
-python-dotenv>=0.10.1
+python-dotenv>=0.10.3
